@@ -8,7 +8,12 @@ const calcInput = document.getElementById('calc-input');
 const submitBtn = document.getElementById('submit-btn');
 
 const successNotify = document.getElementById('success');
-const errorNotify = document.getElementById('error');
+const errorDiv = document.getElementById('error');
+const errorNotify = document.getElementById('error-notify');
+
+//disable the notifications 
+successNotify.style.display = "none";
+errorDiv.style.display = "none";
 //common funcitons
 function generatePin() {
 
@@ -43,7 +48,30 @@ calcBody.addEventListener('click', function (e) {
     if (isNaN(btnNumber)) {
         if (btnNumber.toLowerCase() === "c") {
             calcInput.value = "";
-        } else {
+        } else if (btnNumber.toLowerCase() === "submit") {
+            const pin = generateInput.value;
+            const calcValue = calcInput.value;
+            //error handling
+            if (pin == "") {
+                errorDiv.style.display = "block";
+                errorNotify.innerText = "Error ! you have no pin. create it!"
+            }
+            else if (calcValue == "") {
+                errorDiv.style.display = "block";
+                errorNotify.innerText = "Error! you have no input in calc.click buttons"
+            }
+            else if (pin !== calcValue) {
+                errorDiv.style.display = "block";
+                errorNotify.innerText = "Pin does not matched";
+            }
+            else {
+                successNotify.style.display = "block";
+                errorDiv.style.display = "none"
+                calcInput.value = "";
+                generateInput.value = "";
+            }
+        }
+        else {
             calcInput.value = removeLastElement(previousInputValue);
         }
     } else {
@@ -54,9 +82,6 @@ calcBody.addEventListener('click', function (e) {
 });
 
 //match two numbers
-submitBtn.addEventListener('click', function () {
-    //error handling
-    if (generateInput.value == "") {
-        errorNotify.innerText = ""
-    }
-})
+// submitBtn.addEventListener('click', function () {
+
+// })
