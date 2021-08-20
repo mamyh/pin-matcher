@@ -25,10 +25,14 @@ function generatePin() {
         return generatePin();
     }
 }
-//remove last element with subStrig()
+//remove last element with slice
 function removeLastElement(totalElements) {
-    return totalElements.substring(0, totalElements.length - 1);
+    return totalElements.slice(0, totalElements.length - 1);
 }
+//remove last element with subStrig()
+/* function removeLastElement(totalElements) {
+    return totalElements.substring(0, totalElements.length - 1);
+} */
 //remove last element with substr()
 /* function removeLastElement(totalElements) {
     return totalElements.substr(0, totalElements.length - 1);
