@@ -25,10 +25,14 @@ function generatePin() {
         return generatePin();
     }
 }
-//remove last element with substr()
+//remove last element with subStrig()
 function removeLastElement(totalElements) {
-    return totalElements.substr(0, totalElements.length - 1);
+    return totalElements.substring(0, totalElements.length - 1);
 }
+//remove last element with substr()
+/* function removeLastElement(totalElements) {
+    return totalElements.substr(0, totalElements.length - 1);
+} */
 // remove last element my method 
 /* function removeLastElement(totalElements) {
     let stringArray = [];
