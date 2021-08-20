@@ -25,16 +25,19 @@ function generatePin() {
         return generatePin();
     }
 }
-
-// remove last element 
+//remove last element with substr()
 function removeLastElement(totalElements) {
+    return totalElements.substr(0, totalElements.length - 1);
+}
+// remove last element my method 
+/* function removeLastElement(totalElements) {
     let stringArray = [];
     for (let element of totalElements) {
         stringArray.push(element);
     };
     stringArray.pop();
     return stringArray.join('');
-}
+} */
 //generate the pin
 generateBtn.addEventListener('click', function () {
     generateInput.value = generatePin();
